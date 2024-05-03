@@ -70,4 +70,4 @@ act = Action()
 while True:
     act.read_situation()
     act.klaatu_barada_nikhe_khe_khe()
-    #Your destination coordinates
+    #Your destination  coordinates
