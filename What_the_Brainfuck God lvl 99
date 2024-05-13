@@ -1,0 +1,4 @@
+#include<map>
+#include<vector>
+#include<iostream>
+int main(){int L,S,N,p=0,i=0;std::cin>>L>>S>>N;std::string prg,l;while(L--&&std::getline(std::cin>>std::ws,l))prg+=l;std::vector<int> m(S),in(N);for(auto&x:in)std::cin>>x;std::map<int,int>b;std::vector<int>s;for(int x=0;x<prg.size();++x){if(prg[x]=='[')s.push_back(x);if(prg[x]==']'){if(s.empty()){puts("SYNTAX ERROR");return 0;}b[s.back()]=x;b[x]=s.back();s.pop_back();}}if(!s.empty()){puts("SYNTAX ERROR");return 0;}for(int x=0;x<prg.size();++x){switch(prg[x]){case'>':if(++p>=S){puts("POINTER OUT OF BOUNDS");return 0;}break;case'<':if(--p<0){puts("POINTER OUT OF BOUNDS");return 0;}break;case'+':if(++m[p]>255){puts("INCORRECT VALUE");return 0;}break;case'-':if(--m[p]<0){puts("INCORRECT VALUE");return 0;}break;case'.':putchar(m[p]);break;case',':if(i<N)m[p]=in[i++];break;case'[':if(!m[p])x=b[x];break;case']':if(m[p])x=b[x];break;}}}
