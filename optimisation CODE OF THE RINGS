@@ -1,11 +1,8 @@
 #include <iostream>
-#include <string>
 using namespace std;
-
 int main() {
-    string s, r;
+    string s, r; char c = ' ';
     getline(cin, s);
-    char c = ' ';
     for (char t : s) {
         int p = (t == ' ') ? 26 : t - 'A', q = (c == ' ') ? 26 : c - 'A', f = (p - q + 27) % 27, b = (q - p + 27) % 27;
         r += string(min(f, b), f <= b ? '+' : '-') + ".";
